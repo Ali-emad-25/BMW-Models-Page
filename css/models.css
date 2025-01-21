@@ -160,7 +160,7 @@ header .logo img {
 /* End header */
 /* Start Landing */
 .landing {
-  height: calc(100vh - 88px);
+  height: calc(100vh - 87px);
 }
 .landing video {
   position: absolute;
