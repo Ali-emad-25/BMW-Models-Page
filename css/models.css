@@ -122,6 +122,32 @@ a {
     color: var(--secondary-color);
   }
 }
+.scroll-up {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  position: fixed;
+  top: 80%;
+  right: -60px;
+  z-index: 999;
+  box-shadow: 0 0 20px 0 var(--main-color);
+  transition: var(--main-transition);
+  animation-name: apear;
+  animation-timeline: scroll(y);
+}
+@media (min-width: 992px) {
+  .scroll-up:hover {
+    transform: scale(1.1);
+  }
+}
+.scroll-up i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--main-color);
+}
 /* End Global Rules */
 /* Start header */
 header .container {
@@ -198,7 +224,7 @@ header .logo img {
 }
 .filter {
   border-bottom: 0.5px solid var(--secondary-color);
-  background-color: rgba(0, 0, 0, 0.493);
+  background-color: rgba(0, 0, 0, 0.89);
   z-index: 999;
   position: sticky;
   top: 0;
@@ -239,7 +265,7 @@ header .logo img {
 }
 .filter .menu .links a:hover {
   color: var(--main-color);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.505);
+  border-color: var(--main-color);
 }
 @media (max-width: 991px) {
   .filter .menu .links a {
@@ -257,15 +283,15 @@ header .logo img {
     top: calc(100% + 3px);
     right: 0;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.493);
-    box-shadow: 0 0 20px var(--third-color);
+    background-color: rgba(0, 0, 0, 0.89);
+    box-shadow: 0 0 15px var(--third-color);
     border-radius: 10px;
   }
   .filter .menu .links a {
     padding: 10px 20px;
   }
   .filter .menu .links a:hover {
-    border: none;
+    border-color: rgba(0, 0, 0, 0.89);
   }
 }
 /* End Filter 
@@ -315,8 +341,11 @@ header .logo img {
   }
 }
 .model .box .image img {
-  width: inherit;
-  height: inherit;
+  max-width: 100%;
+  transition: 0.4s;
+}
+.model .box:hover .image img {
+  transform: scale(1.1);
 }
 .model .box .text {
   margin: 30px 0 20px 25px;
@@ -437,6 +466,20 @@ footer .copyright span {
   40%,
   60% {
     transform: translateY(-15px);
+  }
+}
+@keyframes apear {
+  7%,
+  100% {
+    right: 25px;
+  }
+}
+@media (max-width: 991px) {
+  @keyframes apear {
+    5%,
+    100% {
+      right: 10px;
+    }
   }
 }
 /* End Animation */
